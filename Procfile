@@ -1,0 +1,1 @@
+worker: python final_ticket_monitor.py
