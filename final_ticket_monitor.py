@@ -18,8 +18,10 @@ class NFTWebhook():
         pass
 
     def personal_webhook(asset, ether_amount, wallet_address):
+        # webhook = DiscordWebhook(
+        #     url='https://discord.com/api/webhooks/996771713868111892/23PdREOHd-g8cm9NJp_qO2604XlT7AIHACo08_lVNJmPrMUWSI5-G7GTvQ_mQWTe3Fdc') ## main webhook
         webhook = DiscordWebhook(
-            url='https://discord.com/api/webhooks/996771713868111892/23PdREOHd-g8cm9NJp_qO2604XlT7AIHACo08_lVNJmPrMUWSI5-G7GTvQ_mQWTe3Fdc')
+            url='https://discord.com/api/webhooks/996795962188107867/M5Io31Au76jqeXz4dhlucCp3rWudw5pvTYQ7hMXEbaxphJ_K0cQzfCC5a8zpbJ2e6vLO')  #big baller
         embed = DiscordEmbed(title=f"New Coin "+asset.name,color=2021216) 
         embed.set_thumbnail(url="https://etherscan.io/images/main/empty-token.png")
         embed.add_embed_field(name="ETH amount Of Buy | Number Of "+asset.symbol, value=str(ether_amount)+'    |    '+str(asset.amount_of_tokens), inline=False)
@@ -69,7 +71,7 @@ class NFShitCoins():
             print(f"[{str(datetime.now())}]  -> Got Transactions")
             if asset.name in self.previuos_name:
                 print(f"[{str(datetime.now())}]  -> Already Notified Coin: {asset.name} Waiting......")
-                sleep(randint(30,120))
+                sleep(randint(3,30))
             else:
                 eth_value = self.get_eth_value_of_transaction(asset)
                 print(f"[{str(datetime.now())}]  -> Got ETH Value of Transaction")
@@ -80,10 +82,13 @@ class NFShitCoins():
                     self.previuos_name.pop(0)
                 self.previuos_name.append(asset.name)
                 self.throttled = 0
-                sleep(randint(30,60))
+                sleep(randint(30,120))
 
 
-wallets = ['0x079386dcf2f4b571b804112af97ff9d5ac2c538e','0xb0d6b433c850aa0afabed1532993866d7f7e507e','0x79979be80f16a7600297e0ce23d08d1a5e174aee','0x8722c7d5aa13e400016576eb634c1a1407805415','0x5cde4882124dc1d3ed475d3c162e7e08d7e510ba','0x3467eba885767d3ac9e754380036ab04d275942a']
+#wallets = ['0x079386dcf2f4b571b804112af97ff9d5ac2c538e','0xb0d6b433c850aa0afabed1532993866d7f7e507e','0x79979be80f16a7600297e0ce23d08d1a5e174aee','0x8722c7d5aa13e400016576eb634c1a1407805415','0x5cde4882124dc1d3ed475d3c162e7e08d7e510ba','0x3467eba885767d3ac9e754380036ab04d275942a']
+
+wallets = ['0xbcb05a3f85d34f0194c70d5914d5c4e28f11cc02']
+
 i = 0
 for i in range(len(wallets)):
     x = threading.Thread(target=NFShitCoins, args=(wallets[i],))
