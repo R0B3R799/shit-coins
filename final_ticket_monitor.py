@@ -28,7 +28,7 @@ class NFTWebhook():
         embed.add_embed_field(name="Dextools Link", value=f"**[Link]("+'https://www.dextools.io/app/ether/pair-explorer/'+asset.contract_address+")**", inline=False)
         embed.add_embed_field(name="Symbol", value=asset.symbol, inline=True)
         embed.add_embed_field(name="Transaction Hash", value=asset.hash, inline=False)
-        embed.add_embed_field(name="Wallet Address", value=wallet_address, inline=False)
+        embed.add_embed_field(name="Wallet", value=f"**[Link]("+f'https://etherscan.io/address/{wallet_address}#tokentxns'+")**", inline=False) 
         embed.set_footer(text="Coin Monitors By Rob | " + str(datetime.now()))
         webhook.add_embed(embed)
         webhook.execute()
@@ -71,7 +71,7 @@ class NFShitCoins():
             print(f"[{str(datetime.now())}]  -> Got Transactions")
             if asset.name in self.previuos_name:
                 print(f"[{str(datetime.now())}]  -> Already Notified Coin: {asset.name} Waiting......")
-                sleep(randint(3,30))
+                sleep(randint(3,15))
             else:
                 eth_value = self.get_eth_value_of_transaction(asset)
                 print(f"[{str(datetime.now())}]  -> Got ETH Value of Transaction")
@@ -82,7 +82,7 @@ class NFShitCoins():
                     self.previuos_name.pop(0)
                 self.previuos_name.append(asset.name)
                 self.throttled = 0
-                sleep(randint(30,120))
+                sleep(randint(3,30))
 
 
 #wallets = ['0x079386dcf2f4b571b804112af97ff9d5ac2c538e','0xb0d6b433c850aa0afabed1532993866d7f7e507e','0x79979be80f16a7600297e0ce23d08d1a5e174aee','0x8722c7d5aa13e400016576eb634c1a1407805415','0x5cde4882124dc1d3ed475d3c162e7e08d7e510ba','0x3467eba885767d3ac9e754380036ab04d275942a']
