@@ -1,1 +1,1 @@
-worker: ShitCoins.py
+worker: python final_ticket_monitor.py
