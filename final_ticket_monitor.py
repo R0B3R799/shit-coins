@@ -18,19 +18,18 @@ class NFTWebhook():
         pass
 
     def personal_webhook(asset, ether_amount, wallet_address):
-        # webhook = DiscordWebhook(
-        #     url='https://discord.com/api/webhooks/996771713868111892/23PdREOHd-g8cm9NJp_qO2604XlT7AIHACo08_lVNJmPrMUWSI5-G7GTvQ_mQWTe3Fdc') ## main webhook
-        # webhook = DiscordWebhook(
-        #     url='https://discord.com/api/webhooks/996795962188107867/M5Io31Au76jqeXz4dhlucCp3rWudw5pvTYQ7hMXEbaxphJ_K0cQzfCC5a8zpbJ2e6vLO')  #big baller
         if wallet_address == '0x504370ce2abef4ebea8c0aac33abdb30160e31e4':
             webhook = DiscordWebhook(
                 url='https://discord.com/api/webhooks/997066333613195305/NEArXdxSQRIkCYBQUaPNjndzAOXIibU3mtmnw5dOo6ryxiiYSAGDoB22wn849mWkbK_d')  #big baller 2
         elif wallet_address == '0x1f2159afcb737510deb559a3baa5b6e5d79bae64':
             webhook = DiscordWebhook(
-                url='https://discord.com/api/webhooks/997107188294230046/Bj-aajEdDodixiYkk1Fl9FQWgFbra3U0ytTVtLzZudZgZCV5L-LbcIlojaXDL6gHzUqW')  #big baller 2
+                url='https://discord.com/api/webhooks/997107188294230046/Bj-aajEdDodixiYkk1Fl9FQWgFbra3U0ytTVtLzZudZgZCV5L-LbcIlojaXDL6gHzUqW')  #less spammy
+        elif wallet_address == '0x1f2159afcb737510deb559a3baa5b6e5d79bae64':
+            webhook = DiscordWebhook(
+                url='https://discord.com/api/webhooks/997107188294230046/Bj-aajEdDodixiYkk1Fl9FQWgFbra3U0ytTVtLzZudZgZCV5L-LbcIlojaXDL6gHzUqW')  #big baller  
         else:
             webhook = DiscordWebhook(
-                url='https://discord.com/api/webhooks/996795962188107867/M5Io31Au76jqeXz4dhlucCp3rWudw5pvTYQ7hMXEbaxphJ_K0cQzfCC5a8zpbJ2e6vLO')  #big baller   
+                url='https://discord.com/api/webhooks/996771713868111892/23PdREOHd-g8cm9NJp_qO2604XlT7AIHACo08_lVNJmPrMUWSI5-G7GTvQ_mQWTe3Fdc')    #anoth guy
         
         embed = DiscordEmbed(title=f"New Coin "+asset.name,color=2021216) 
         embed.set_thumbnail(url="https://etherscan.io/images/main/empty-token.png")
@@ -97,7 +96,7 @@ class NFShitCoins():
 
 #wallets = ['0x079386dcf2f4b571b804112af97ff9d5ac2c538e','0xb0d6b433c850aa0afabed1532993866d7f7e507e','0x79979be80f16a7600297e0ce23d08d1a5e174aee','0x8722c7d5aa13e400016576eb634c1a1407805415','0x5cde4882124dc1d3ed475d3c162e7e08d7e510ba','0x3467eba885767d3ac9e754380036ab04d275942a']
 
-wallets = ['0x504370ce2abef4ebea8c0aac33abdb30160e31e4','0xbcb05a3f85d34f0194c70d5914d5c4e28f11cc02','0x1f2159afcb737510deb559a3baa5b6e5d79bae64']
+wallets = ['0x504370ce2abef4ebea8c0aac33abdb30160e31e4','0xbcb05a3f85d34f0194c70d5914d5c4e28f11cc02','0x1f2159afcb737510deb559a3baa5b6e5d79bae64','0x8e533dbe7b12af95a398b687d9e1d5903be8c938','0x8b86dcfecf8afc02b6f6576afb057269c1e5ab90','0x7c6a40caaf66da1681fa2b424dc9346349cb8b9d','0x13b62e85b9c79a687463ce1fa462c23a7ae513b4','0x87549bda26c015e15fb3dd83aa34723a70d43ca7']
 
 i = 0
 for i in range(len(wallets)):
